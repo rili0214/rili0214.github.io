@@ -36,7 +36,7 @@ export interface PersonalInfo {
   name: string;
   title: string;
   email: string;
-  phone: string;
+  phone?: string;
   github?: string;
   scholar?: string;
   linkedin?: string;

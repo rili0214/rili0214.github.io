@@ -4,7 +4,7 @@ import { educationData, skillsData, projectsData, experienceData, publicationsDa
 
 const MainContent: React.FC = () => {
   return (
-    <main className="flex-1 p-6 md:p-12 lg:p-16 bg-white max-w-5xl">
+    <main className="flex-1 p-6 md:p-12 lg:p-16 bg-white w-full">
       
       {/* Education Section */}
       <Section title="Education" className="scroll-mt-16" >

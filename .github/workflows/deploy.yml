@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ] # 确认你的分支名是 main 还是 master
+    branches: [ main ]
 
 permissions:
   contents: read
@@ -23,19 +23,14 @@ jobs:
           
       - name: Install dependencies
         run: npm install
-        # 注意：删除了 working-directory: ./web
         
       - name: Build
         run: npm run build
-        # 注意：删除了 working-directory: ./web
-        env:
-          # 🔥 这里非常重要！把 GitHub Secrets 里的密钥注入到构建过程中
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist  # 注意：这里改成了 ./dist (去掉了 web/)
+          path: ./dist 
 
   deploy:
     environment:
