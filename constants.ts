@@ -4,7 +4,6 @@ export const personalInfo: PersonalInfo = {
   name: "Yuming Xie",
   title: "M.S. Student in Computer Science",
   email: "taox0001@outlook.com",
-  phone: "+1 908 258 1623",
   github: "github.com/taox0001", // Inferred from username in email, though not explicitly in OCR link text
   linkedin: "linkedin.com/in/yuming-xie", // Placeholder based on common patterns
 };
