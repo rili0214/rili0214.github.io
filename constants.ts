@@ -2,10 +2,10 @@ import { Education, SkillCategory, Project, Experience, Publication, PersonalInf
 
 export const personalInfo: PersonalInfo = {
   name: "Yuming Xie",
-  title: "M.S. Student in Computer Science",
+  title: "Graduate Student in Computer Science",
   email: "taox0001@outlook.com",
-  github: "github.com/taox0001", // Inferred from username in email, though not explicitly in OCR link text
-  linkedin: "linkedin.com/in/yuming-xie", // Placeholder based on common patterns
+  github: "github.com/rili0214", 
+  linkedin: "linkedin.com/in/yuming-xie-4b1aa0363", 
 };
 
 export const educationData: Education[] = [
@@ -14,7 +14,7 @@ export const educationData: Education[] = [
     degree: "Master of Science in Computer Science",
     date: "Aug 2024 – May 2026",
     details: [
-      "Research Interests: Software Engineering, Distributed/High-Performance Network Systems, LLM-assisted Formal Verification."
+      "Research Interests: AI-Powered Software Engineering & Formal Verification, Distributed/High-Performance Network Systems"
     ]
   },
   {
@@ -23,8 +23,8 @@ export const educationData: Education[] = [
     date: "Aug 2020 – May 2024",
     honors: "Magna Cum Laude",
     details: [
-      "Research Interests: Algorithms, Machine Learning, Operations Research & Optimization.",
-      "Minor: Econometric Modeling."
+      "Research Interests: Algorithms, Machine Learning & Data, Operations Research & Optimization.",
+      "Minor: Economics of Quantitative Modeling, Philosophy of Logic, Computation, and Mind."
     ]
   }
 ];
@@ -36,7 +36,7 @@ export const skillsData: SkillCategory[] = [
   },
   {
     category: "Cloud & Systems",
-    items: ["AWS (Lambda, ECS Fargate, SQS, CloudWatch, CDK)", "Docker", "Linux", "CI/CD"]
+    items: ["AWS (Lambda, ECS Fargate, SQS, CloudWatch, CDK)", "Docker", "Linux", "CI/CD", "Git", "Microservices"]
   },
   {
     category: "Data & Search",

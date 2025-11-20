@@ -44,7 +44,7 @@ const MainContent: React.FC = () => {
       </Section>
 
       {/* Projects Section */}
-      <Section title="Projects" className="scroll-mt-16">
+      <Section title="Selected Projects" className="scroll-mt-16">
         <div id="projects" className="space-y-8">
           {projectsData.map((project, index) => (
             <div key={index}>
