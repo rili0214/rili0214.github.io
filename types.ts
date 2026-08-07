@@ -1,43 +1,39 @@
 export interface Education {
   school: string;
   degree: string;
+  location: string;
   date: string;
   details: string[];
   honors?: string;
 }
 
-export interface SkillCategory {
-  category: string;
-  items: string[];
-}
-
-export interface Project {
+export interface ResearchProject {
   name: string;
-  role?: string;
-  techStack?: string;
-  date?: string;
-  description: string[];
+  date: string;
+  summary: string;
+  highlights: string[];
 }
 
-export interface Experience {
+export interface TeachingExperience {
   title: string;
-  organization?: string;
-  description: string[];
+  course: string;
+  organization: string;
+  date: string;
+  highlights: string[];
 }
 
-export interface Publication {
-  authors: string;
+export interface PhotoPlaceholder {
   title: string;
-  venue: string;
-  year: string;
+  description: string;
 }
 
 export interface PersonalInfo {
   name: string;
   title: string;
   email: string;
-  phone?: string;
   github?: string;
   scholar?: string;
   linkedin?: string;
+  advisor?: string;
+  institution?: string;
 }
