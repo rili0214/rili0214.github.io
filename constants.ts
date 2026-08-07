@@ -1,103 +1,130 @@
-import { Education, SkillCategory, Project, Experience, Publication, PersonalInfo } from './types';
+import { Education, ResearchProject, TeachingExperience, PhotoPlaceholder, PersonalInfo } from './types';
 
 export const personalInfo: PersonalInfo = {
   name: "Yuming Xie",
-  title: "Graduate Student in Computer Science",
+  title: "Incoming Ph.D. Student in Computer Science at Worcester Polytechnic Institute",
   email: "taox0001@outlook.com",
-  github: "github.com/rili0214", 
-  linkedin: "linkedin.com/in/yuming-xie-4b1aa0363", 
+  github: "github.com/rili0214",
+  linkedin: "linkedin.com/in/yuming-xie-4b1aa0363",
+  advisor: "Prof. Cheng Zhang",
+  institution: "Worcester Polytechnic Institute",
 };
+
+export const researchInterests: string[] = [
+  "Neuro-symbolic Software Engineering",
+  "Formal Verification",
+  "Trustworthy AI",
+  "High-Performance Systems",
+];
+
+export const profileSummary = [
+  "I am an incoming Ph.D. student in Computer Science at Worcester Polytechnic Institute, advised by Prof. Cheng Zhang.",
+  "My research focuses on narrowing the gap between stochastic software behavior and formal correctness guarantees. I am particularly interested in tiered neuro-symbolic architectures that combine LLM-guided synthesis, symbolic counterexample generation, and lightweight runtime verification for high-throughput systems.",
+];
 
 export const educationData: Education[] = [
   {
+    school: "Worcester Polytechnic Institute",
+    degree: "Ph.D. in Computer Science",
+    location: "Worcester, MA",
+    date: "Incoming",
+    details: ["Advisor: Prof. Cheng Zhang", "Research direction: neuro-symbolic software engineering, formal methods, and reliable systems."],
+  },
+  {
     school: "Brown University",
-    degree: "Master of Science in Computer Science",
+    degree: "Sc.M. in Computer Science",
+    location: "Providence, RI",
     date: "Aug 2024 – May 2026",
-    details: [
-      "Research Interests: AI-Powered Software Engineering & Formal Verification, Distributed/High-Performance Network Systems"
-    ]
+    honors: "GPA: 4.0/4.0",
+    details: ["Relevant coursework: Formal Verification, High-Performance Network Systems, Distributed Systems, Computer Vision."],
   },
   {
-    school: "Rensselaer Polytechnic Institute (RPI)",
-    degree: "Bachelor of Science in Computer Science & Mathematics",
+    school: "Rensselaer Polytechnic Institute",
+    degree: "B.S. in Computer Science & Mathematics",
+    location: "Troy, NY",
     date: "Aug 2020 – May 2024",
-    honors: "Magna Cum Laude",
-    details: [
-      "Research Interests: Algorithms, Machine Learning & Data, Operations Research & Optimization.",
-      "Minor: Economics of Quantitative Modeling, Philosophy of Logic, Computation, and Mind."
-    ]
-  }
+    honors: "Magna Cum Laude · GPA: 3.72/4.0",
+    details: ["Concentration: Theory & Algorithms, Mathematics of Operations Research.", "Minor: Economics."],
+  },
 ];
 
-export const skillsData: SkillCategory[] = [
+export const projectsData: ResearchProject[] = [
   {
-    category: "Languages",
-    items: ["Java", "Python", "C++", "Rust"]
+    name: "PolyGrid: Distributed Neuro-Symbolic Agent Runtime",
+    date: "Fall 2024 – Present",
+    summary: "A modular evaluation runtime for AI agents that investigates the systems bottlenecks behind large-context reasoning tasks.",
+    highlights: [
+      "Integrated a Rust-based data plane with a distributed control plane to study I/O bottlenecks in agent workloads.",
+      "Developed a custom ingestion engine using Linux io_uring primitives, moving from blocking I/O to zero-copy ring buffers for a 46% throughput gain.",
+      "Implemented a recursive inference engine with Python asyncio to coordinate parallel sub-agents and a Reflexion Loop for evidence-grounded refinement.",
+      "Designed a simulated annealing-based memory eviction policy with utility H = C · log(1 + N) · e^(-λt) to probabilistically prune low-temperature memories under resource constraints.",
+      "Adopted the Model Context Protocol to decouple agent logic from backend execution and built container-based sandboxing for resource quotas and network isolation.",
+    ],
   },
   {
-    category: "Cloud & Systems",
-    items: ["AWS (Lambda, ECS Fargate, SQS, CloudWatch, CDK)", "Docker", "Linux", "CI/CD", "Git", "Microservices"]
+    name: "Dual-Mode Debugging Pipeline (DMDP)",
+    date: "Fall 2024 – Present",
+    summary: "A competitive-collaborative neuro-symbolic repair loop for evaluating how architectural feedback can improve LLM code repair.",
+    highlights: [
+      "Built a cross-model feedback protocol where Qwen/Llama models exchange execution reports before final review by a reasoning model.",
+      "Devised a weighted scalar scoring system that normalizes outputs from static linters, AST parsers, and formal verifiers into rewards for second-pass generation.",
+      "Implemented a dual-mode runtime: a fast AWS Lambda path for lightweight Bandit/Clang-Tidy checks and a local deep path for AST/CFG extraction plus ASan-based dynamic analysis.",
+      "Evaluated the hybrid loop on IBM Project CodeNet 100, observing repair rates of 27.8% for Python, 22.4% for Java, and 14.3% for C++.",
+    ],
   },
   {
-    category: "Data & Search",
-    items: ["MySQL", "Redis", "OpenSearch"]
+    name: "Formal Verification of Concurrent Cache Algorithms",
+    date: "Fall 2025",
+    summary: "A Lean 4 formalization effort for understanding the cost of verifying stateful systems algorithms.",
+    highlights: [
+      "Formalized SIEVE and LRU cache algorithms using inductive predicates for size boundedness, get-put consistency, and topology preservation invariants.",
+      "Studied the semantic gap between inductive proofs and concurrent imperative state, motivating tiered verification rather than a monolithic verify-all workflow.",
+    ],
   },
   {
-    category: "Frameworks & Fundamentals",
-    items: ["Spring Boot", "Flask", "Data Structures & Algorithms", "OOD"]
+    name: "Quantum Computing of Loan-Risk Models",
+    date: "Spring 2024",
+    summary: "A benchmark contrasting clean analytical risk models with probabilistic noise in real quantum execution.",
+    highlights: [
+      "Built C++ and Python verification benchmarks comparing Monte Carlo simulations with analytical solutions.",
+      "Implemented Value-at-Risk optimization with both classical binary search and a Grover Search workflow executed on IBM Quantum System One.",
+    ],
   },
   {
-    category: "Testing & Quality",
-    items: ["Pytest", "JUnit", "Postman", "Unit/Integration/E2E Testing", "SonarQube", "Clang-Tidy", "ASan/Valgrind"]
-  }
+    name: "Physics-Aware Generative Mural Restoration",
+    date: "Spring 2025",
+    summary: "A computer vision project using physical models as anchors for generative restoration.",
+    highlights: [
+      "Proposed a refinement module using Kubelka-Munk equations and Arrhenius kinetics to constrain pixel hallucinations toward physical plausibility.",
+      "Achieved 0.90 aging stability and ΔE = 1.52 spectral consistency, surpassing PSNR-oriented baselines.",
+    ],
+  },
 ];
 
-export const projectsData: Project[] = [
+export const teachingData: TeachingExperience[] = [
   {
-    name: "DMDS | Multi-model Dual-mode Code Debugging System",
-    techStack: "Backend: Python/Flask, Cloud: AWS, Data: MySQL",
-    description: [
-      "Built a quality assurance loop: implemented an automated flow from Code Commit → Static Analysis → LLM Diagnosis → Auto-generated Fix Suggestions; orchestrated via Python/Flask and Qwen/Llama.",
-      "Designed a tiered testing strategy supporting two modes: (1) Cloud-based high-throughput scanning (Bandit/Clang-Tidy); (2) Local deep inspection supporting root cause analysis (Static + Dynamic + Formal + Complexity); achieved p95 scan < 30s, deep inspection median ~3min.",
-      "Quantified Results (IBM Project CodeNet 100 Qs): Reduced composite failure metrics (Static 40% + Dynamic 30% + Formal 20% + Complexity 10%) on Python/Java/C++ by 27.8% / 22.4% / 14.3% respectively.",
-      "Long-task Governance: Migrated long-running batch tasks from Lambda to ECS Fargate (CDK), bypassing the 15-minute limit; added retry/error handling to improve batch success rates.",
-      "Tool Quality Assurance: Wrote over 60 unit and integration tests (Pytest) to ensure the stability and accuracy of the core diagnostic logic.",
-      "Dev Experience: Co-developed a VS Code extension to trigger cloud scans and local deep inspections within the editor, reducing context switching."
-    ]
+    title: "Undergraduate Teaching Assistant",
+    course: "CSCI 2300 Introduction to Algorithms",
+    organization: "Rensselaer Polytechnic Institute",
+    date: "Aug 2022 – Dec 2022, Aug 2023 – May 2024",
+    highlights: [
+      "Led weekly recitations and office hours for 20+ students, connecting algorithmic theory with concrete implementation.",
+      "Managed grading for course assessments and supported students as they built confidence with rigorous CS foundations.",
+    ],
   },
-  {
-    name: "SchemaBridge | Prompt-Guided Excel Normalization",
-    techStack: "Spring Boot + OpenSearch + JSON Schema",
-    description: [
-      "Data Ingestion & Normalization: Converted unstructured Excel + User Prompts into JSON Schema-validated relational JSON, implementing header normalization and type/constraint inference.",
-      "Automated Integration Testing: Conducted automated integration testing on REST APIs using Postman and JUnit, verifying core business logic and achieving >95% code coverage for key modules.",
-      "Performance Optimization: Used Apache POI Streaming API (XSSFReader) to parse large .xlsx files, controlling memory usage; normalized cell types before validation to reduce parsing errors and variance.",
-      "Embedding Assisted Mapping: Used DJL + Hugging Face to generate vectors and performed approximate nearest neighbor search based on Amazon OpenSearch k-NN, improving header match accuracy over string matching."
-    ]
-  }
 ];
 
-export const experienceData: Experience[] = [
+export const photoPlaceholders: PhotoPlaceholder[] = [
   {
-    title: "Research & Teaching Experience",
-    description: [
-      "DeFi Large Transaction Modeling & Contract Risk Detection: Built a Solidity CI/CD generation-verification link (Remix compilation, property testing, Mythril security scan, Etherscan fetching), covering 400+ test cases and establishing a defect type library and audit trail.",
-      "RPI Algorithm Course Teaching Assistant: Responsible for weekly Recitation/Office Hours (~30 attendees), developed a lightweight Python test automation framework to verify functional correctness of various code submissions and provide feedback, grading assignments/midterms/finals."
-    ]
-  }
-];
-
-export const publicationsData: Publication[] = [
-  {
-    authors: "Xie, Y.; Nishizawa, T.; Zhang, H.; Chen, J.; Ker, A.",
-    title: "Self-Supervised Learning for Predicting Breast Cancer Treatment Response Using Public Datasets",
-    venue: "Accepted at BSSL 2024",
-    year: "2024"
+    title: "Camping & Trails",
+    description: "A future space for outdoor photos, hikes, campsites, and quiet views after long debugging sessions.",
   },
   {
-    authors: "Xie, Y.",
-    title: "Comparison of Various Recommendation Algorithms and Statistical Analysis of Datasets",
-    venue: "In Proc. CONF-SPML 2024",
-    year: "2024"
-  }
+    title: "Pets & Everyday Life",
+    description: "A cozy spot for photos with pets, small daily moments, and non-research memories.",
+  },
+  {
+    title: "Travel & Campus",
+    description: "A flexible gallery tile for WPI, Brown, conferences, road trips, or any place that becomes part of the journey.",
+  },
 ];
