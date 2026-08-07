@@ -28,7 +28,7 @@ export const educationData: Education[] = [
     degree: "Ph.D. in Computer Science",
     location: "Worcester, MA",
     date: "Incoming",
-    details: ["Advisor: Prof. Cheng Zhang", "Research direction: neuro-symbolic software engineering, formal methods, and reliable systems."],
+    details: ["Advisor: Prof. Cheng Zhang", "Research direction: Formal methods and reliable systems."],
   },
   {
     school: "Brown University",
@@ -36,7 +36,7 @@ export const educationData: Education[] = [
     location: "Providence, RI",
     date: "Aug 2024 – May 2026",
     honors: "GPA: 4.0/4.0",
-    details: ["Relevant coursework: Formal Verification, High-Performance Network Systems, Distributed Systems, Computer Vision."],
+    details: ["Relevant coursework: Formal Verification, High-Performance Network Systems, Distributed Systems."],
   },
   {
     school: "Rensselaer Polytechnic Institute",
