@@ -42,33 +42,18 @@ export const aboutMe = [
 
 export const lifePhotoSections: LifePhotoSection[] = [
   {
-    title: "Camping memory",
-    description: "Replace this with a short story about a camping trip, a trail, or a quiet outdoor moment.",
-    images: [],
-  },
-  {
     title: "Pets and weekends",
-    description: "Replace this with a note about pets, friends, or a warm everyday-life photo.",
+    description: "Cats and dogs",
     images: [],
   },
   {
-    title: "Cooking experiments",
-    description: "Replace this with a description of a strange, fun, or not-quite-delicious dish you created.",
+    title: "Food tour",
+    description: "Love exploring cafe/restaurants, photos from Chengdu, Sichuan",
     images: [],
   },
   {
     title: "Travel snapshot",
-    description: "Replace this with a caption for travel, campus, conference, or city photos.",
-    images: [],
-  },
-  {
-    title: "Daily life",
-    description: "Replace this with any small moment you want to remember.",
-    images: [],
-  },
-  {
-    title: "More photos",
-    description: "Duplicate this object whenever you want to add another photo section and personal description.",
+    description: "Love camping and traveling",
     images: [],
   },
 ];
