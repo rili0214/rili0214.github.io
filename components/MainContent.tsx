@@ -1,106 +1,66 @@
 import React from 'react';
-import { Camera, MapPin } from 'lucide-react';
-import Section from './Section';
-import { educationData, photoPlaceholders, profileSummary, projectsData, researchInterests, teachingData } from '../constants';
+import { affiliationLinks, bioParagraphs, contactItems, lifePhotos } from '../constants';
 
 const MainContent: React.FC = () => {
+  const [csLink, wpiLink, advisorLink] = affiliationLinks;
+
   return (
-    <main className="flex-1 p-6 md:p-12 lg:p-16 bg-white w-full">
-      <section id="about" className="scroll-mt-16 mb-12 rounded-3xl bg-gradient-to-br from-indigo-50 via-white to-slate-50 p-8 border border-indigo-100">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-600 mb-3">Academic Home</p>
-        <h2 className="text-3xl md:text-4xl font-bold text-slate-950 mb-4">Building reliable neuro-symbolic systems from proofs, runtime evidence, and high-performance infrastructure.</h2>
-        <div className="space-y-4 text-slate-700 leading-relaxed">
-          {profileSummary.map((paragraph, index) => (
-            <p key={index}>{paragraph}</p>
-          ))}
-        </div>
-        <div className="mt-6 flex flex-wrap gap-2">
-          {researchInterests.map((interest) => (
-            <span key={interest} className="rounded-full bg-white px-4 py-2 text-sm font-medium text-indigo-700 border border-indigo-100 shadow-sm">
-              {interest}
-            </span>
-          ))}
-        </div>
-      </section>
+    <main className="flex-1 bg-white w-full min-h-screen">
+      <div className="max-w-3xl mx-auto px-6 py-16 md:py-24 lg:py-28">
+        <div className="space-y-7 text-lg leading-8 text-slate-700">
+          <p>
+            I am an incoming Ph.D. student of{' '}
+            <a className="font-medium text-indigo-700 hover:text-indigo-900 underline underline-offset-4" href={csLink.href} target="_blank" rel="noreferrer">
+              {csLink.label}
+            </a>{' '}
+            at{' '}
+            <a className="font-medium text-indigo-700 hover:text-indigo-900 underline underline-offset-4" href={wpiLink.href} target="_blank" rel="noreferrer">
+              {wpiLink.label}
+            </a>
+            . I am really honored to be advised by{' '}
+            <a className="font-medium text-indigo-700 hover:text-indigo-900 underline underline-offset-4" href={advisorLink.href} target="_blank" rel="noreferrer">
+              {advisorLink.label}
+            </a>
+            .
+          </p>
 
-      <Section title="Education" className="scroll-mt-16">
-        <div id="education" className="space-y-6">
-          {educationData.map((edu, index) => (
-            <div key={index} className="relative pl-4 border-l-2 border-indigo-100">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1 gap-1">
-                <h3 className="text-lg font-bold text-slate-900">{edu.school}</h3>
-                <span className="text-sm text-slate-500 font-mono">{edu.date}</span>
-              </div>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-slate-700 font-medium mb-2">
-                <span>{edu.degree}</span>
-                <span className="inline-flex items-center gap-1 text-sm text-slate-500"><MapPin size={14} />{edu.location}</span>
-                {edu.honors && <span className="text-indigo-600 text-sm">{edu.honors}</span>}
-              </div>
-              <ul className="list-disc list-inside text-slate-600 text-sm space-y-1">
-                {edu.details.map((detail, idx) => (
-                  <li key={idx} className="leading-relaxed">{detail}</li>
-                ))}
-              </ul>
+          <p>{bioParagraphs[1]}</p>
+
+          <p className="text-base leading-7 text-slate-600">
+            {contactItems.map((item, index) => (
+              <React.Fragment key={item.label}>
+                {index > 0 && <span className="mx-2 text-slate-300">|</span>}
+                <span>{item.label}: </span>
+                {item.href ? (
+                  <a className="font-semibold text-slate-800 hover:text-indigo-700" href={item.href} target={item.href.startsWith('mailto:') ? undefined : '_blank'} rel={item.href.startsWith('mailto:') ? undefined : 'noreferrer'}>
+                    {item.value}
+                  </a>
+                ) : (
+                  <strong>{item.value}</strong>
+                )}
+              </React.Fragment>
+            ))}
+          </p>
+        </div>
+
+        <div className="mt-14 rounded-3xl border border-dashed border-indigo-200 bg-indigo-50/40 p-6 text-slate-600">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.25em] text-indigo-600 mb-3">Life photos</h2>
+          {lifePhotos.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {lifePhotos.map((photo) => (
+                <figure key={photo.src} className="overflow-hidden rounded-2xl bg-white shadow-sm">
+                  <img src={photo.src} alt={photo.alt} className="h-56 w-full object-cover" />
+                  <figcaption className="px-4 py-3 text-sm text-slate-600">{photo.caption}</figcaption>
+                </figure>
+              ))}
             </div>
-          ))}
+          ) : (
+            <p className="leading-7">
+              This is a reserved space for future photos from camping, pets, travel, and everyday life. Add images to <code className="rounded bg-white px-2 py-1 text-sm">public/life/</code>, then add each image path to <code className="rounded bg-white px-2 py-1 text-sm">lifePhotos</code> in <code className="rounded bg-white px-2 py-1 text-sm">constants.ts</code>.
+            </p>
+          )}
         </div>
-      </Section>
-
-      <Section title="Research Experiences & Selected Projects" className="scroll-mt-16">
-        <div id="research" className="space-y-8">
-          {projectsData.map((project) => (
-            <article key={project.name} className="rounded-2xl border border-slate-200 p-5 hover:border-indigo-200 hover:shadow-sm transition-all">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
-                <h3 className="text-lg font-bold text-slate-900">{project.name}</h3>
-                <span className="text-xs font-mono text-indigo-600 bg-indigo-50 px-2 py-1 rounded whitespace-nowrap">{project.date}</span>
-              </div>
-              <p className="text-sm text-slate-700 mb-3 leading-relaxed">{project.summary}</p>
-              <ul className="list-disc list-outside ml-5 text-slate-600 text-sm space-y-2">
-                {project.highlights.map((desc, idx) => (
-                  <li key={idx} className="leading-relaxed">{desc}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section title="Teaching & Service" className="scroll-mt-16">
-        <div id="teaching" className="space-y-6">
-          {teachingData.map((exp) => (
-            <article key={exp.course} className="rounded-2xl bg-slate-50 p-5 border border-slate-200">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-2">
-                <div>
-                  <h3 className="text-lg font-bold text-slate-900">{exp.title}</h3>
-                  <p className="text-sm font-medium text-slate-700">{exp.course} · {exp.organization}</p>
-                </div>
-                <span className="text-xs font-mono text-slate-500">{exp.date}</span>
-              </div>
-              <ul className="list-disc list-outside ml-5 text-slate-600 text-sm space-y-2">
-                {exp.highlights.map((desc, idx) => (
-                  <li key={idx} className="leading-relaxed">{desc}</li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section title="Life Outside Research" className="scroll-mt-16">
-        <div id="life" className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {photoPlaceholders.map((item) => (
-            <div key={item.title} className="min-h-56 rounded-3xl border-2 border-dashed border-indigo-200 bg-indigo-50/40 p-5 flex flex-col justify-between">
-              <div className="h-28 rounded-2xl bg-white/80 flex items-center justify-center text-indigo-300 mb-4">
-                <Camera size={36} />
-              </div>
-              <div>
-                <h3 className="font-bold text-slate-900 mb-2">{item.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{item.description}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
+      </div>
     </main>
   );
 };

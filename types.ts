@@ -1,30 +1,18 @@
-export interface Education {
-  school: string;
-  degree: string;
-  location: string;
-  date: string;
-  details: string[];
-  honors?: string;
+export interface Link {
+  label: string;
+  href: string;
 }
 
-export interface ResearchProject {
-  name: string;
-  date: string;
-  summary: string;
-  highlights: string[];
+export interface ContactItem {
+  label: string;
+  value: string;
+  href?: string;
 }
 
-export interface TeachingExperience {
-  title: string;
-  course: string;
-  organization: string;
-  date: string;
-  highlights: string[];
-}
-
-export interface PhotoPlaceholder {
-  title: string;
-  description: string;
+export interface LifePhoto {
+  src: string;
+  alt: string;
+  caption: string;
 }
 
 export interface PersonalInfo {
@@ -32,8 +20,5 @@ export interface PersonalInfo {
   title: string;
   email: string;
   github?: string;
-  scholar?: string;
   linkedin?: string;
-  advisor?: string;
-  institution?: string;
 }

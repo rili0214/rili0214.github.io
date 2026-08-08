@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Linkedin, Github, FileText, GraduationCap } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText } from 'lucide-react';
 import { personalInfo } from '../constants';
 
 interface SidebarProps {
@@ -11,28 +11,11 @@ const Sidebar: React.FC<SidebarProps> = ({ className = "" }) => {
     <aside className={`bg-[#4f5fb8] text-white flex-shrink-0 md:w-72 lg:w-80 md:h-screen md:sticky md:top-0 overflow-y-auto ${className}`}>
       <div className="p-8 flex flex-col items-center text-center">
         <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-white/20 mb-6 shadow-lg bg-white">
-          <img
-            src="/avatar.jpg"
-            alt={personalInfo.name}
-            className="w-full h-full object-cover"
-          />
+          <img src="/avatar.jpg" alt={personalInfo.name} className="w-full h-full object-cover" />
         </div>
 
         <h1 className="text-2xl font-bold mb-1">{personalInfo.name}</h1>
-        <p className="text-indigo-100 text-sm mb-3 font-light leading-relaxed">{personalInfo.title}</p>
-        {personalInfo.advisor && (
-          <p className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-2 text-xs text-indigo-50 mb-8">
-            <GraduationCap size={14} /> Advisor: {personalInfo.advisor}
-          </p>
-        )}
-
-        <nav className="w-full space-y-3 mb-8">
-          <a href="#about" className="block py-2 px-4 rounded hover:bg-white/10 transition-colors text-sm font-medium">About</a>
-          <a href="#education" className="block py-2 px-4 rounded hover:bg-white/10 transition-colors text-sm font-medium">Education</a>
-          <a href="#research" className="block py-2 px-4 rounded hover:bg-white/10 transition-colors text-sm font-medium">Research</a>
-          <a href="#teaching" className="block py-2 px-4 rounded hover:bg-white/10 transition-colors text-sm font-medium">Teaching</a>
-          <a href="#life" className="block py-2 px-4 rounded hover:bg-white/10 transition-colors text-sm font-medium">Life</a>
-        </nav>
+        <p className="text-indigo-100 text-sm mb-8 font-light leading-relaxed">{personalInfo.title}</p>
 
         <div className="w-full space-y-3 text-sm text-indigo-50 border-t border-indigo-400/30 pt-6">
           <div className="flex gap-2 justify-center mb-2">
