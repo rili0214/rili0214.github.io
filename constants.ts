@@ -1,103 +1,66 @@
-import { Education, SkillCategory, Project, Experience, Publication, PersonalInfo } from './types';
+import { ContactItem, LifePhoto, Link, NewsItem, PersonalInfo } from './types';
 
 export const personalInfo: PersonalInfo = {
   name: "Yuming Xie",
-  title: "Graduate Student in Computer Science",
-  email: "taox0001@outlook.com",
-  github: "github.com/rili0214", 
-  linkedin: "linkedin.com/in/yuming-xie-4b1aa0363", 
+  title: "First-Year Ph.D. Student in Computer Science",
+  email: "yxie8@wpi.edu",
+  github: "github.com/rili0214",
+  linkedin: "linkedin.com/in/yuming-xie-4b1aa0363",
 };
 
-export const educationData: Education[] = [
-  {
-    school: "Brown University",
-    degree: "Master of Science in Computer Science",
-    date: "Aug 2024 – May 2026",
-    details: [
-      "Research Interests: AI-Powered Software Engineering & Formal Verification, Distributed/High-Performance Network Systems"
-    ]
-  },
-  {
-    school: "Rensselaer Polytechnic Institute (RPI)",
-    degree: "Bachelor of Science in Computer Science & Mathematics",
-    date: "Aug 2020 – May 2024",
-    honors: "Magna Cum Laude",
-    details: [
-      "Research Interests: Algorithms, Machine Learning & Data, Operations Research & Optimization.",
-      "Minor: Economics of Quantitative Modeling, Philosophy of Logic, Computation, and Mind."
-    ]
-  }
+export const affiliationLinks: Link[] = [
+  { label: "Computer Science", href: "https://www.wpi.edu/academics/departments/computer-science" },
+  { label: "Worcester Polytechnic Institute", href: "https://www.wpi.edu/" },
+  { label: "Prof. Cheng Zhang", href: "https://www.wpi.edu/people/faculty/czhang13" },
+  { label: "Brown University", href: "https://www.brown.edu/" },
+  { label: "Brown CS", href: "https://cs.brown.edu/" },
+  { label: "Rensselaer Polytechnic Institute", href: "https://www.rpi.edu/" },
+  { label: "RPI Computer Science", href: "https://compsci.rpi.edu/" },
+  { label: "RPI Mathematical Sciences", href: "https://math.rpi.edu/" },
 ];
 
-export const skillsData: SkillCategory[] = [
-  {
-    category: "Languages",
-    items: ["Java", "Python", "C++", "Rust"]
-  },
-  {
-    category: "Cloud & Systems",
-    items: ["AWS (Lambda, ECS Fargate, SQS, CloudWatch, CDK)", "Docker", "Linux", "CI/CD", "Git", "Microservices"]
-  },
-  {
-    category: "Data & Search",
-    items: ["MySQL", "Redis", "OpenSearch"]
-  },
-  {
-    category: "Frameworks & Fundamentals",
-    items: ["Spring Boot", "Flask", "Data Structures & Algorithms", "OOD"]
-  },
-  {
-    category: "Testing & Quality",
-    items: ["Pytest", "JUnit", "Postman", "Unit/Integration/E2E Testing", "SonarQube", "Clang-Tidy", "ASan/Valgrind"]
-  }
+export const researchFocus = "My current research focuses on programming languages and formal verification, especially with the help of AI. I am interested in combining symbolic reasoning, proof-oriented methods, and learning-based tools to build software systems that are more reliable and easier to validate.";
+
+export const contactItems: ContactItem[] = [
+  { label: "E-mail", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
+  { label: "Office", value: "TBD" },
 ];
 
-export const projectsData: Project[] = [
+export const recentNews: NewsItem[] = [
   {
-    name: "DMDS | Multi-model Dual-mode Code Debugging System",
-    techStack: "Backend: Python/Flask, Cloud: AWS, Data: MySQL",
-    description: [
-      "Built a quality assurance loop: implemented an automated flow from Code Commit → Static Analysis → LLM Diagnosis → Auto-generated Fix Suggestions; orchestrated via Python/Flask and Qwen/Llama.",
-      "Designed a tiered testing strategy supporting two modes: (1) Cloud-based high-throughput scanning (Bandit/Clang-Tidy); (2) Local deep inspection supporting root cause analysis (Static + Dynamic + Formal + Complexity); achieved p95 scan < 30s, deep inspection median ~3min.",
-      "Quantified Results (IBM Project CodeNet 100 Qs): Reduced composite failure metrics (Static 40% + Dynamic 30% + Formal 20% + Complexity 10%) on Python/Java/C++ by 27.8% / 22.4% / 14.3% respectively.",
-      "Long-task Governance: Migrated long-running batch tasks from Lambda to ECS Fargate (CDK), bypassing the 15-minute limit; added retry/error handling to improve batch success rates.",
-      "Tool Quality Assurance: Wrote over 60 unit and integration tests (Pytest) to ensure the stability and accuracy of the core diagnostic logic.",
-      "Dev Experience: Co-developed a VS Code extension to trigger cloud scans and local deep inspections within the editor, reducing context switching."
-    ]
+    date: "May'26",
+    text: "Graduated from Brown University with an Sc.M. in Computer Science.",
   },
-  {
-    name: "SchemaBridge | Prompt-Guided Excel Normalization",
-    techStack: "Spring Boot + OpenSearch + JSON Schema",
-    description: [
-      "Data Ingestion & Normalization: Converted unstructured Excel + User Prompts into JSON Schema-validated relational JSON, implementing header normalization and type/constraint inference.",
-      "Automated Integration Testing: Conducted automated integration testing on REST APIs using Postman and JUnit, verifying core business logic and achieving >95% code coverage for key modules.",
-      "Performance Optimization: Used Apache POI Streaming API (XSSFReader) to parse large .xlsx files, controlling memory usage; normalized cell types before validation to reduce parsing errors and variance.",
-      "Embedding Assisted Mapping: Used DJL + Hugging Face to generate vectors and performed approximate nearest neighbor search based on Amazon OpenSearch k-NN, improving header match accuracy over string matching."
-    ]
-  }
 ];
 
-export const experienceData: Experience[] = [
-  {
-    title: "Research & Teaching Experience",
-    description: [
-      "DeFi Large Transaction Modeling & Contract Risk Detection: Built a Solidity CI/CD generation-verification link (Remix compilation, property testing, Mythril security scan, Etherscan fetching), covering 400+ test cases and establishing a defect type library and audit trail.",
-      "RPI Algorithm Course Teaching Assistant: Responsible for weekly Recitation/Office Hours (~30 attendees), developed a lightweight Python test automation framework to verify functional correctness of various code submissions and provide feedback, grading assignments/midterms/finals."
-    ]
-  }
+export const aboutMe = [
+  "I enjoy Chinese history and classical poetry. My favorite writer is Ma Boyong, and my favorite poet is Xin Qiji.",
+  "I also enjoy cooking, especially trying and inventing interesting, surprising, and sometimes magical dishes — although they do not always taste as good as they sound.",
 ];
 
-export const publicationsData: Publication[] = [
+export const lifePhotos: LifePhoto[] = [
   {
-    authors: "Xie, Y.; Nishizawa, T.; Zhang, H.; Chen, J.; Ker, A.",
-    title: "Self-Supervised Learning for Predicting Breast Cancer Treatment Response Using Public Datasets",
-    venue: "Accepted at BSSL 2024",
-    year: "2024"
+    title: "Camping memory",
+    description: "Replace this with a short story about a camping trip, a trail, or a quiet outdoor moment.",
   },
   {
-    authors: "Xie, Y.",
-    title: "Comparison of Various Recommendation Algorithms and Statistical Analysis of Datasets",
-    venue: "In Proc. CONF-SPML 2024",
-    year: "2024"
-  }
+    title: "Pets and weekends",
+    description: "Replace this with a note about pets, friends, or a warm everyday-life photo.",
+  },
+  {
+    title: "Cooking experiments",
+    description: "Replace this with a description of a strange, fun, or not-quite-delicious dish you created.",
+  },
+  {
+    title: "Travel snapshot",
+    description: "Replace this with a caption for travel, campus, conference, or city photos.",
+  },
+  {
+    title: "Daily life",
+    description: "Replace this with any small moment you want to remember.",
+  },
+  {
+    title: "More photos",
+    description: "Duplicate this object whenever you want to add another photo and personal description.",
+  },
 ];

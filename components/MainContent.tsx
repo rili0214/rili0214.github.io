@@ -1,118 +1,81 @@
 import React from 'react';
-import Section from './Section';
-import { educationData, skillsData, projectsData, experienceData, publicationsData } from '../constants';
+import { aboutMe, affiliationLinks, contactItems, recentNews, researchFocus } from '../constants';
+
+const ExternalLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
+  <a className="font-medium text-indigo-700 hover:text-indigo-900 underline underline-offset-4 decoration-indigo-200 hover:decoration-indigo-500 transition-colors" href={href} target="_blank" rel="noreferrer">
+    {children}
+  </a>
+);
 
 const MainContent: React.FC = () => {
+  const [csLink, wpiLink, advisorLink, brownLink, brownCsLink, rpiLink, rpiCsLink, rpiMathLink] = affiliationLinks;
+
   return (
-    <main className="flex-1 p-6 md:p-12 lg:p-16 bg-white w-full">
-      
-      {/* Education Section */}
-      <Section title="Education" className="scroll-mt-16" >
-        <div id="education" className="space-y-6">
-          {educationData.map((edu, index) => (
-            <div key={index} className="relative pl-4 border-l-2 border-indigo-100">
-              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
-                <h3 className="text-lg font-bold text-slate-900">{edu.school}</h3>
-                <span className="text-sm text-slate-500 font-mono">{edu.date}</span>
-              </div>
-              <div className="text-slate-700 font-medium mb-2">
-                {edu.degree}
-                {edu.honors && <span className="ml-2 text-indigo-600 text-sm">({edu.honors})</span>}
-              </div>
-              <ul className="list-disc list-inside text-slate-600 text-sm space-y-1">
-                {edu.details.map((detail, idx) => (
-                  <li key={idx} className="leading-relaxed">{detail}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </Section>
+    <main className="flex-1 bg-white w-full min-h-screen">
+      <div className="max-w-3xl mx-auto px-6 py-16 md:py-24 lg:py-28">
+        <section className="space-y-6 text-[1.05rem] leading-8 text-slate-700">
+          <p>
+            I am a first-year Ph.D. student of{' '}
+            <ExternalLink href={csLink.href}>{csLink.label}</ExternalLink> at{' '}
+            <ExternalLink href={wpiLink.href}>{wpiLink.label}</ExternalLink>. I am really honored to be advised by{' '}
+            <ExternalLink href={advisorLink.href}>{advisorLink.label}</ExternalLink>.
+          </p>
 
-      {/* Skills Section */}
-      <Section title="Skills" className="scroll-mt-16">
-        <div id="skills" className="grid grid-cols-1 gap-4">
-          {skillsData.map((skill, index) => (
-            <div key={index} className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
-              <span className="text-sm font-bold text-slate-900 sm:w-48 flex-shrink-0">{skill.category}:</span>
-              <div className="text-sm text-slate-600 leading-relaxed">
-                {skill.items.join(", ")}
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
+          <p>{researchFocus}</p>
 
-      {/* Projects Section */}
-      <Section title="Selected Projects" className="scroll-mt-16">
-        <div id="projects" className="space-y-8">
-          {projectsData.map((project, index) => (
-            <div key={index}>
-              <div className="mb-2">
-                <h3 className="text-lg font-bold text-slate-900 flex items-center flex-wrap gap-2">
-                  {project.name.split('|')[0]} 
-                  {project.name.split('|')[1] && <span className="text-base font-normal text-slate-500">| {project.name.split('|')[1]}</span>}
-                </h3>
-                {project.techStack && (
-                  <p className="text-xs font-mono text-indigo-600 mt-1 bg-indigo-50 inline-block px-2 py-1 rounded">
-                    {project.techStack}
-                  </p>
+          <p>
+            Previously, I was a graduate student in <ExternalLink href={brownCsLink.href}>Computer Science</ExternalLink> at{' '}
+            <ExternalLink href={brownLink.href}>{brownLink.label}</ExternalLink>. Before that, I received my B.S. in{' '}
+            <ExternalLink href={rpiCsLink.href}>Computer Science</ExternalLink> and{' '}
+            <ExternalLink href={rpiMathLink.href}>Mathematics</ExternalLink> from{' '}
+            <ExternalLink href={rpiLink.href}>{rpiLink.label}</ExternalLink>.
+          </p>
+
+          <p className="text-base leading-7 text-slate-600">
+            {contactItems.map((item, index) => (
+              <React.Fragment key={item.label}>
+                {index > 0 && <span className="mx-2 text-slate-300">|</span>}
+                <span>{item.label}: </span>
+                {item.href ? (
+                  <a className="font-semibold text-slate-800 hover:text-indigo-700 transition-colors" href={item.href} target={item.href.startsWith('mailto:') ? undefined : '_blank'} rel={item.href.startsWith('mailto:') ? undefined : 'noreferrer'}>
+                    {item.value}
+                  </a>
+                ) : (
+                  <strong className="text-slate-800">{item.value}</strong>
                 )}
-              </div>
-              <ul className="list-disc list-outside ml-5 text-slate-600 text-sm space-y-2">
-                {project.description.map((desc, idx) => (
-                  <li key={idx} className="leading-relaxed">{desc}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </Section>
+              </React.Fragment>
+            ))}
+          </p>
+        </section>
 
-      {/* Experience Section */}
-      <Section title="Research & Teaching Experience" className="scroll-mt-16">
-        <div id="experience" className="space-y-6">
-          {experienceData.map((exp, index) => (
-            <div key={index}>
-              {/* Note: The provided data structure for experience was flat strings in description mostly, 
-                  adapting generic rendering based on the specific data provided */}
-              <ul className="list-disc list-outside ml-5 text-slate-600 text-sm space-y-3">
-                {exp.description.map((desc, idx) => {
-                  const [boldPart, ...rest] = desc.split(':');
-                  return (
-                    <li key={idx} className="leading-relaxed">
-                      {rest.length > 0 ? (
-                        <span>
-                          <strong className="text-slate-800">{boldPart}:</strong>{rest.join(':')}
-                        </span>
-                      ) : (
-                        boldPart
-                      )}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </Section>
+        <section className="mt-14 border-t border-slate-200 pt-8">
+          <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-slate-900 mb-5">Recent News</h2>
+          <div className="space-y-3 text-slate-700 leading-7">
+            {recentNews.map((item) => (
+              <p key={`${item.date}-${item.text}`}>
+                <span className="font-semibold text-slate-900">{item.date}:</span>{' '}
+                {item.href ? <ExternalLink href={item.href}>{item.text}</ExternalLink> : item.text}
+              </p>
+            ))}
+          </div>
+        </section>
 
-      {/* Publications Section */}
-      <Section title="Selected Publications" className="scroll-mt-16">
-        <div id="publications" className="space-y-4">
-          {publicationsData.map((pub, index) => (
-            <div key={index} className="flex gap-3 text-sm text-slate-600">
-              <span className="font-mono text-indigo-600 font-bold">[{index + 1}]</span>
-              <div>
-                 <span className="font-medium text-slate-800">{pub.title}</span>. <br/>
-                 <span className="italic">{pub.authors}</span>. <br/>
-                 <span className="text-slate-500">{pub.venue}, {pub.year}.</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
+        <section className="mt-12 border-t border-slate-200 pt-8">
+          <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-slate-900 mb-5">Current Research</h2>
+        </section>
 
+        <section className="mt-12 border-t border-slate-200 pt-8">
+          <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-slate-900 mb-5">About Me</h2>
+          <div className="space-y-4 text-slate-700 leading-7">
+            {aboutMe.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <a href="#photos" className="inline-flex mt-6 text-sm font-semibold text-indigo-700 hover:text-indigo-900 underline underline-offset-4">
+            View life photos →
+          </a>
+        </section>
+      </div>
     </main>
   );
 };
