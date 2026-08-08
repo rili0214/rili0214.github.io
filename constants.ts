@@ -48,18 +48,60 @@ export const lifePhotoSections: LifePhotoSection[] = [
       {
         src: "/photos/pet.jpg",
         alt: "Pet photo",
-        caption: "Replace this caption with your own description for this pet photo.",
+        caption: "",
       },
     ],
   },
   {
     title: "Food tour",
     description: "Love exploring cafe/restaurants, photos from Chengdu, Sichuan",
-    images: [],
+    images: [
+      {
+        src: "/photos/food.jpg",
+        alt: "Food photo",
+        caption: "Hot pot in Chengdu, Sichuan",
+      },
+      {
+        src: "/photos/food1.jpg",
+        alt: "Food photo1",
+        caption: "Braised intestine noodles in Chengdu, Sichuan",
+      },
+      {
+        src: "/photos/food2.jpg",
+        alt: "Food photo2",
+        caption: "Portuguese cuisine in Providence, Rhode Island",
+      },
+    ],
   },
   {
     title: "Travel snapshot",
     description: "Love camping and traveling",
-    images: [],
+    images: [
+      {
+        src: "/photos/travel.jpg",
+        alt: "Travel photo",
+        caption: "Bifengxia Giant Panda Base in Yaan, Sichuan",
+      },
+      {
+        src: "/photos/travel1.jpg",
+        alt: "Travel photo1",
+        caption: "The Coles Memorial Clock Tower at West China Union University",
+      },
+      {
+        src: "/photos/travel2.jpg",
+        alt: "Travel photo2",
+        caption: "",
+      },
+      {
+        src: "/photos/travel3.jpg",
+        alt: "Travel photo3",
+        caption: "Jiuzhai Valley National Park",
+      },
+      {
+        src: "/photos/travel4.jpg",
+        alt: "Travel photo4",
+        caption: "Mengding Tea History Museum",
+      },
+    ],
   },
 ];
