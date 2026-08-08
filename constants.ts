@@ -59,12 +59,12 @@ export const lifePhotoSections: LifePhotoSection[] = [
       {
         src: "/photos/food.jpg",
         alt: "Food photo",
-        caption: "Hot pot in Chengdu, Sichuan",
+        caption: "Braised intestine noodles in Chengdu, Sichuan",
       },
       {
         src: "/photos/food1.jpg",
         alt: "Food photo1",
-        caption: "Braised intestine noodles in Chengdu, Sichuan",
+        caption: "Hot pot in Chengdu, Sichuan",
       },
       {
         src: "/photos/food2.jpg",
