@@ -13,7 +13,10 @@ export const affiliationLinks: Link[] = [
   { label: "Worcester Polytechnic Institute", href: "https://www.wpi.edu/" },
   { label: "Prof. Cheng Zhang", href: "https://www.wpi.edu/people/faculty/czhang13" },
   { label: "Brown University", href: "https://www.brown.edu/" },
+  { label: "Brown CS", href: "https://cs.brown.edu/" },
   { label: "Rensselaer Polytechnic Institute", href: "https://www.rpi.edu/" },
+  { label: "RPI Computer Science", href: "https://compsci.rpi.edu/" },
+  { label: "RPI Mathematical Sciences", href: "https://math.rpi.edu/" },
 ];
 
 export const researchFocus = "My current research focuses on programming languages and formal verification, especially with the help of AI. I am interested in combining symbolic reasoning, proof-oriented methods, and learning-based tools to build software systems that are more reliable and easier to validate.";
@@ -31,4 +34,34 @@ export const recentNews: NewsItem[] = [
   },
 ];
 
-export const lifePhotos: LifePhoto[] = [];
+export const aboutMe = [
+  "I enjoy Chinese history and classical poetry. My favorite writer is Ma Boyong, and my favorite poet is Xin Qiji.",
+  "I also enjoy cooking, especially trying and inventing interesting, surprising, and sometimes magical dishes — although they do not always taste as good as they sound.",
+];
+
+export const lifePhotos: LifePhoto[] = [
+  {
+    title: "Camping memory",
+    description: "Replace this with a short story about a camping trip, a trail, or a quiet outdoor moment.",
+  },
+  {
+    title: "Pets and weekends",
+    description: "Replace this with a note about pets, friends, or a warm everyday-life photo.",
+  },
+  {
+    title: "Cooking experiments",
+    description: "Replace this with a description of a strange, fun, or not-quite-delicious dish you created.",
+  },
+  {
+    title: "Travel snapshot",
+    description: "Replace this with a caption for travel, campus, conference, or city photos.",
+  },
+  {
+    title: "Daily life",
+    description: "Replace this with any small moment you want to remember.",
+  },
+  {
+    title: "More photos",
+    description: "Duplicate this object whenever you want to add another photo and personal description.",
+  },
+];

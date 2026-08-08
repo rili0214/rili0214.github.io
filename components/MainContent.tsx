@@ -1,5 +1,5 @@
 import React from 'react';
-import { affiliationLinks, contactItems, lifePhotos, recentNews, researchFocus } from '../constants';
+import { aboutMe, affiliationLinks, contactItems, recentNews, researchFocus } from '../constants';
 
 const ExternalLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
   <a className="font-medium text-indigo-700 hover:text-indigo-900 underline underline-offset-4 decoration-indigo-200 hover:decoration-indigo-500 transition-colors" href={href} target="_blank" rel="noreferrer">
@@ -8,7 +8,7 @@ const ExternalLink: React.FC<{ href: string; children: React.ReactNode }> = ({ h
 );
 
 const MainContent: React.FC = () => {
-  const [csLink, wpiLink, advisorLink, brownLink, rpiLink] = affiliationLinks;
+  const [csLink, wpiLink, advisorLink, brownLink, brownCsLink, rpiLink, rpiCsLink, rpiMathLink] = affiliationLinks;
 
   return (
     <main className="flex-1 bg-white w-full min-h-screen">
@@ -24,7 +24,10 @@ const MainContent: React.FC = () => {
           <p>{researchFocus}</p>
 
           <p>
-            Previously, I was a graduate student at <ExternalLink href={brownLink.href}>{brownLink.label}</ExternalLink>. Before that, I received my B.S. in Computer Science and Mathematics from{' '}
+            Previously, I was a graduate student in <ExternalLink href={brownCsLink.href}>Computer Science</ExternalLink> at{' '}
+            <ExternalLink href={brownLink.href}>{brownLink.label}</ExternalLink>. Before that, I received my B.S. in{' '}
+            <ExternalLink href={rpiCsLink.href}>Computer Science</ExternalLink> and{' '}
+            <ExternalLink href={rpiMathLink.href}>Mathematics</ExternalLink> from{' '}
             <ExternalLink href={rpiLink.href}>{rpiLink.label}</ExternalLink>.
           </p>
 
@@ -38,7 +41,7 @@ const MainContent: React.FC = () => {
                     {item.value}
                   </a>
                 ) : (
-                  <strong>{item.value}</strong>
+                  <strong className="text-slate-800">{item.value}</strong>
                 )}
               </React.Fragment>
             ))}
@@ -61,22 +64,16 @@ const MainContent: React.FC = () => {
           <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-slate-900 mb-5">Current Research</h2>
         </section>
 
-        <section className="mt-12 rounded-3xl border border-dashed border-indigo-200 bg-indigo-50/40 p-6 text-slate-600">
-          <h2 className="text-sm font-semibold uppercase tracking-[0.25em] text-indigo-600 mb-3">Life Photos</h2>
-          {lifePhotos.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {lifePhotos.map((photo) => (
-                <figure key={photo.src} className="overflow-hidden rounded-2xl bg-white shadow-sm">
-                  <img src={photo.src} alt={photo.alt} className="h-56 w-full object-cover" />
-                  <figcaption className="px-4 py-3 text-sm text-slate-600">{photo.caption}</figcaption>
-                </figure>
-              ))}
-            </div>
-          ) : (
-            <p className="leading-7">
-              Reserved for future photos from camping, pets, travel, and everyday life. Add images to <code className="rounded bg-white px-2 py-1 text-sm">public/life/</code>, then list them in <code className="rounded bg-white px-2 py-1 text-sm">lifePhotos</code> in <code className="rounded bg-white px-2 py-1 text-sm">constants.ts</code>.
-            </p>
-          )}
+        <section className="mt-12 border-t border-slate-200 pt-8">
+          <h2 className="text-sm font-bold uppercase tracking-[0.25em] text-slate-900 mb-5">About Me</h2>
+          <div className="space-y-4 text-slate-700 leading-7">
+            {aboutMe.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <a href="#photos" className="inline-flex mt-6 text-sm font-semibold text-indigo-700 hover:text-indigo-900 underline underline-offset-4">
+            View life photos →
+          </a>
         </section>
       </div>
     </main>

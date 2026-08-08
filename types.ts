@@ -16,9 +16,10 @@ export interface NewsItem {
 }
 
 export interface LifePhoto {
-  src: string;
-  alt: string;
-  caption: string;
+  title: string;
+  description: string;
+  src?: string;
+  alt?: string;
 }
 
 export interface PersonalInfo {

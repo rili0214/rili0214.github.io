@@ -17,12 +17,16 @@ const Sidebar: React.FC<SidebarProps> = ({ className = "" }) => {
         <h1 className="text-3xl font-bold mb-3 tracking-tight">{personalInfo.name}</h1>
         <p className="text-indigo-50 text-lg mb-12 font-light leading-relaxed">{personalInfo.title}</p>
 
+        <nav className="w-full space-y-3 text-base text-indigo-50 border-t border-white/15 pt-8 mb-8">
+          <a href="#home" className="block py-2 px-4 rounded hover:bg-white/10 transition-colors font-medium">Home</a>
+          <a href="#photos" className="block py-2 px-4 rounded hover:bg-white/10 transition-colors font-medium">Life Photos</a>
+        </nav>
+
         <div className="w-full space-y-5 text-base text-indigo-50 border-t border-white/15 pt-8">
           <a href="/cv_en.pdf" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 py-3 bg-white/10 rounded-md hover:bg-white/20 transition-colors cursor-pointer font-medium">
             <FileText size={18} />
             <span>CV (EN)</span>
           </a>
-
           <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-4 hover:text-white transition-colors">
             <Mail size={20} />
             <span className="truncate font-medium">{personalInfo.email}</span>
