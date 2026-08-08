@@ -10,7 +10,7 @@ function App() {
     <div className="min-h-screen flex flex-col md:flex-row bg-gray-50">
       
       {/* Mobile Header */}
-      <div className="md:hidden bg-[#5c6bc0] text-white p-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
+      <div className="md:hidden bg-[#5c63b6] text-white p-4 flex justify-between items-center sticky top-0 z-50 shadow-md">
         <span className="font-bold text-lg">Yuming Xie</span>
         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X /> : <Menu />}
