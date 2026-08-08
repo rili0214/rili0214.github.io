@@ -44,7 +44,7 @@ export const lifePhotoSections: LifePhotoSection[] = [
   {
     title: "Pets and weekends",
     description: "Cats and dogs",
-    images: [public/photos/pet.jpg],
+    images: [<img src="/photos/pet.jpg" alt={pet1} />],
   },
   {
     title: "Food tour",
