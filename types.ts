@@ -9,6 +9,12 @@ export interface ContactItem {
   href?: string;
 }
 
+export interface NewsItem {
+  date: string;
+  text: string;
+  href?: string;
+}
+
 export interface LifePhoto {
   src: string;
   alt: string;
