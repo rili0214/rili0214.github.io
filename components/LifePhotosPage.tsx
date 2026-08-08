@@ -10,7 +10,7 @@ const LifePhotosPage: React.FC = () => {
           <a href="#home" className="text-sm font-semibold text-indigo-700 hover:text-indigo-900 underline underline-offset-4">← Back to home</a>
           <h1 className="mt-6 text-3xl md:text-4xl font-bold tracking-tight text-slate-950">Life Photos</h1>
           <p className="mt-4 max-w-2xl text-slate-600 leading-7">
-            Some photos from camping, pets, cooking, travel, and everyday memories.
+            A separate page for camping, pets, cooking, travel, and everyday memories. Each section can hold multiple photos, and each photo can have its own short caption.
           </p>
         </div>
 

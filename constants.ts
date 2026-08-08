@@ -23,7 +23,7 @@ export const researchFocus = "My current research focuses on programming languag
 
 export const contactItems: ContactItem[] = [
   { label: "E-mail", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-  { label: "Office", value: "TBD", href: "" },
+  { label: "Office", value: "TBD" },
 ];
 
 export const recentNews: NewsItem[] = [
@@ -44,7 +44,13 @@ export const lifePhotoSections: LifePhotoSection[] = [
   {
     title: "Pets and weekends",
     description: "Cats and dogs",
-    images: [<img src="/photos/pet.jpg" alt={pet1} />],
+    images: [
+      {
+        src: "/photos/pet.jpg",
+        alt: "Pet photo",
+        caption: "Replace this caption with your own description for this pet photo.",
+      },
+    ],
   },
   {
     title: "Food tour",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FileText, Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '../constants';
 
 interface SidebarProps {
