@@ -15,11 +15,16 @@ export interface NewsItem {
   href?: string;
 }
 
-export interface LifePhoto {
+export interface LifePhotoImage {
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
+export interface LifePhotoSection {
   title: string;
   description: string;
-  src?: string;
-  alt?: string;
+  images: LifePhotoImage[];
 }
 
 export interface PersonalInfo {

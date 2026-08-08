@@ -1,4 +1,4 @@
-import { ContactItem, LifePhoto, Link, NewsItem, PersonalInfo } from './types';
+import { ContactItem, LifePhotoSection, Link, NewsItem, PersonalInfo } from './types';
 
 export const personalInfo: PersonalInfo = {
   name: "Yuming Xie",
@@ -39,29 +39,35 @@ export const aboutMe = [
   "I also enjoy cooking, especially trying and inventing interesting, surprising, and sometimes magical dishes — although they do not always taste as good as they sound.",
 ];
 
-export const lifePhotos: LifePhoto[] = [
+export const lifePhotoSections: LifePhotoSection[] = [
   {
     title: "Camping memory",
     description: "Replace this with a short story about a camping trip, a trail, or a quiet outdoor moment.",
+    images: [],
   },
   {
     title: "Pets and weekends",
     description: "Replace this with a note about pets, friends, or a warm everyday-life photo.",
+    images: [],
   },
   {
     title: "Cooking experiments",
     description: "Replace this with a description of a strange, fun, or not-quite-delicious dish you created.",
+    images: [],
   },
   {
     title: "Travel snapshot",
     description: "Replace this with a caption for travel, campus, conference, or city photos.",
+    images: [],
   },
   {
     title: "Daily life",
     description: "Replace this with any small moment you want to remember.",
+    images: [],
   },
   {
     title: "More photos",
-    description: "Duplicate this object whenever you want to add another photo and personal description.",
+    description: "Duplicate this object whenever you want to add another photo section and personal description.",
+    images: [],
   },
 ];
