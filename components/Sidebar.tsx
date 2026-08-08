@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import { FileText, Github, Linkedin, Mail } from 'lucide-react';
 import { personalInfo } from '../constants';
 
 interface SidebarProps {
@@ -23,6 +23,10 @@ const Sidebar: React.FC<SidebarProps> = ({ className = "" }) => {
         </nav>
 
         <div className="w-full space-y-5 text-base text-indigo-50 border-t border-white/15 pt-8">
+          <a href="/cv_en.pdf" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-3 py-3 bg-white/10 rounded-md hover:bg-white/20 transition-colors cursor-pointer font-medium">
+            <FileText size={18} />
+            <span>CV (EN)</span>
+          </a>
           <a href={`mailto:${personalInfo.email}`} className="flex items-center gap-4 hover:text-white transition-colors">
             <Mail size={20} />
             <span className="truncate font-medium">{personalInfo.email}</span>

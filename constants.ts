@@ -23,7 +23,8 @@ export const researchFocus = "My current research focuses on programming languag
 
 export const contactItems: ContactItem[] = [
   { label: "E-mail", value: personalInfo.email, href: `mailto:${personalInfo.email}` },
-  { label: "Office", value: "TBD" },
+  { label: "Office", value: "TBD, Worcester Polytechnic Institute", href: "https://maps.app.goo.gl/4LjE2owen4p8pfY86" },
+  { label: "Advisor", value: "Prof. Cheng Zhang", href: "https://www.wpi.edu/people/faculty/czhang13" },
 ];
 
 export const recentNews: NewsItem[] = [
