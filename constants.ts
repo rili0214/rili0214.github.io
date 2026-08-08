@@ -43,7 +43,7 @@ export const aboutMe = [
 export const lifePhotoSections: LifePhotoSection[] = [
   {
     title: "Pets and weekends",
-    description: "Cats and dogs",
+    description: "Cats",
     images: [
       {
         src: "/photos/pet.jpg",
@@ -54,7 +54,7 @@ export const lifePhotoSections: LifePhotoSection[] = [
   },
   {
     title: "Food tour",
-    description: "Love exploring cafe/restaurants, photos from Chengdu, Sichuan",
+    description: "Exploring cafe/restaurants",
     images: [
       {
         src: "/photos/food.jpg",
@@ -75,7 +75,7 @@ export const lifePhotoSections: LifePhotoSection[] = [
   },
   {
     title: "Travel snapshot",
-    description: "Love camping and traveling",
+    description: "Camping and traveling",
     images: [
       {
         src: "/photos/travel.jpg",
@@ -85,7 +85,7 @@ export const lifePhotoSections: LifePhotoSection[] = [
       {
         src: "/photos/travel1.jpg",
         alt: "Travel photo1",
-        caption: "The Coles Memorial Clock Tower at West China Union University",
+        caption: "The Coles Memorial Clock Tower at West China Union University, Chengdu",
       },
       {
         src: "/photos/travel2.jpg",
@@ -95,12 +95,12 @@ export const lifePhotoSections: LifePhotoSection[] = [
       {
         src: "/photos/travel3.jpg",
         alt: "Travel photo3",
-        caption: "Jiuzhai Valley National Park",
+        caption: "Jiuzhai Valley National Park in Aba, Sichuan",
       },
       {
         src: "/photos/travel4.jpg",
         alt: "Travel photo4",
-        caption: "Mengding Tea History Museum",
+        caption: "Mengding Tea History Museum in Yaan, Sichuan",
       },
     ],
   },
